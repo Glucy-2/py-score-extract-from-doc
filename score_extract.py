@@ -8,7 +8,6 @@ from openpyxl.styles import Border, Side
 
 class StuInfo:
     def __init__(self):
-        super().__init__()
         self.id = ""  # 学号
         self.name = ""  # 姓名
         self.major = ""  # 专业
@@ -81,7 +80,7 @@ def read_students(folder_path: str = "all_docs"):
                                         break
                                     for k in range(i + 1, end):
                                         stu.scores[mode].append(
-                                            table.cell(k, j).text.strip()
+                                            float(table.cell(k, j).text.strip())
                                         )
                                     done = True
                                     break
